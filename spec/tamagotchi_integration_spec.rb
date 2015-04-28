@@ -7,6 +7,6 @@ describe('the tamagotchi path', :type => :feature) do
     visit('/')
     #save_and_open_page
     click_button('Feed')
-    expect(page).to(have_content('Your Tamagotchi has 20 food in it'))
+    expect(page).to(have_content('Your Tamagotchi has 10 food in it'))
   end
 end

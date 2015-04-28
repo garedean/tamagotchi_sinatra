@@ -4,7 +4,7 @@
     <form action="/">
       <div class="form-group">
         <button type='submit' class='btn-danger'>Feed</button>
-        <input name='food-amount' placeholder='10'>
+        <input name='food-amount'>
       </div>
       <div class='form-group'>
         <button type='submit' class='btn-success'>Vitals</button>
@@ -14,5 +14,6 @@
 
   <div class='col-xs-4'>
     <p>Your Tamagotchi has <%= @food_amount if @food_amount %> food in it</p>
+    <p><%= @params %>
   </div>
 </div>

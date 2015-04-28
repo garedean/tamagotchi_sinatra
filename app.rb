@@ -4,14 +4,21 @@ require('./lib/tamagotchi')
 also_reload('./lib/*.rb')
 
 get('/') do
-  if params['food-amount']
-    food_amount = params.fetch('food-amount').to_i
+  critter = Tamagotchi.new('bob')
+
+  if params.fetch('food-amount') != ""
+    critter.feed(params.fetch('food-amount').to_i)
   else
-    food_amount = 10
+    critter.feed()
   end
 
-  critter = Tamagotchi.new('bob')
-  critter.feed(food_amount)
+  # if params.fetch('food-amount')
+  #   critter.food_level += params.fetch('food-amount').to_i
+  # else
+  #   critter.food_level += 10
+  # end
+
   @food_amount = critter.food_level
+  @params = params
   erb(:index)
 end

@@ -23,4 +23,12 @@ describe('Tamagotchi') do
       expect(Tamagotchi.new('a').food_level = 5).to(eq(5))
     end
   end
+
+  describe('#dead?') do
+    it('returns dead if the food level is 0 or 100') do
+      critter = Tamagotchi.new('b')
+      critter.food_level = 0
+      expect(critter.dead?).to(eq(true))
+    end
+  end
 end

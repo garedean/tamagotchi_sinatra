@@ -3,20 +3,24 @@ require('tamagotchi')
 
 describe('Tamagotchi') do
   describe('#name') do
+    # get name
     it('returns the name string') do
       expect(Tamagotchi.new('Bob').name).to(eq('Bob'))
     end
-  end
 
-  describe('#set_name') do
+    # set name
     it('sets a name for the tamagotchi') do
-      expect(Tamagotchi.new('Bob').set_name('Bill')).to(eq('Bill'))
+      expect(Tamagotchi.new('Bob').name = 'Bill').to(eq('Bill'))
     end
   end
 
   describe('#food_level') do
-    it('feeds the critter') do
+    it('checks the food level') do
       expect(Tamagotchi.new('a').food_level).to(eq(10))
+    end
+
+    it('sets the food level') do
+      expect(Tamagotchi.new('a').food_level = 5).to(eq(5))
     end
   end
 end

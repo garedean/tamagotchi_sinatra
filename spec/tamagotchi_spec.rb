@@ -13,4 +13,10 @@ describe('Tamagotchi') do
       expect(Tamagotchi.new('Bob').set_name('Bill')).to(eq('Bill'))
     end
   end
+
+  describe('#food_level') do
+    it('feeds the critter') do
+      expect(Tamagotchi.new('a').food_level).to(eq(10))
+    end
+  end
 end

@@ -25,8 +25,15 @@ describe('Tamagotchi') do
   end
 
   describe('#feed') do
-    it('feeds') do
+    it('feeds if hungry') do
       expect(Tamagotchi.new('aa').feed).to(eq(20))
+    end
+
+    it("doesn't feed if not hungry") do
+      critter = Tamagotchi.new('aa')
+      critter.food_level = 80
+      critter.feed(15)
+      expect(critter.food_level).to(eq(80))
     end
   end
 

@@ -31,4 +31,11 @@ describe('Tamagotchi') do
       expect(critter.dead?).to(eq(true))
     end
   end
+
+  describe('#hungry?') do
+    it('indicates whether critter is hungry') do
+      critter = Tamagotchi.new('c')
+      expect(critter.hungry?).to(eq(true))
+    end
+  end
 end

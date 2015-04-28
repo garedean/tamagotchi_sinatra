@@ -10,4 +10,8 @@ class Tamagotchi
   define_method(:dead?) do
     @food_level == 0 || @food_level == 100
   end
+
+  define_method(:hungry?) do
+    @food_level < 50
+  end
 end

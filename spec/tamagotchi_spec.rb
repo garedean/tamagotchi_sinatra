@@ -24,6 +24,12 @@ describe('Tamagotchi') do
     end
   end
 
+  describe('#feed') do
+    it('feeds') do
+      expect(Tamagotchi.new('aa').feed).to(eq(20))
+    end
+  end
+
   describe('#dead?') do
     it('returns dead if the food level is 0 or 100') do
       critter = Tamagotchi.new('b')
@@ -38,4 +44,6 @@ describe('Tamagotchi') do
       expect(critter.hungry?).to(eq(true))
     end
   end
+
+
 end

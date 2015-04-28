@@ -1,5 +1,6 @@
 require('rspec')
 require('tamagotchi')
+require('pry')
 
 describe('Tamagotchi') do
   describe('#name') do

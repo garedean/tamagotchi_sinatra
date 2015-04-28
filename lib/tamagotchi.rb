@@ -14,8 +14,4 @@ class Tamagotchi
   define_method(:hungry?) do
     @food_level < 50
   end
-
-  define_method(:feed) do |amount = 10|
-    @food_level += amount if hungry?
-  end
 end

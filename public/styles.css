@@ -1,0 +1,27 @@
+.row {
+  height: 400px;
+}
+
+header {
+  margin-top: 30px;
+  margin-bottom: 40px;
+  text-align: center;
+  border-top: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
+  padding: 10px;
+}
+
+header h1 {
+  margin: 0;
+}
+
+.readout {
+  background: #f6f6f6;
+  height: 100%;
+  overflow: scroll;
+}
+
+.readout li {
+  list-style-type: none;
+  margin: none;
+}

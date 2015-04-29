@@ -3,12 +3,16 @@ class Tamagotchi
 
   attr_accessor :food_level
   attr_accessor :name
+  attr_accessor :messages
 
   define_method(:initialize) do |name|
     @@pets << self
 
     @name = name
     @food_level = 10
+    @messages = []
+
+    write_message("A baby Tamagotchi is born. Its name is '#{name}'.")
   end
 
   define_method(:dead?) do
@@ -20,7 +24,17 @@ class Tamagotchi
   end
 
   define_method(:feed) do |amount = 10|
-    @food_level += amount if hungry?
+    if hungry?
+      @food_level += amount if hungry?
+      write_message("You feed #{@name} #{amount} food.")
+      @food_level
+    else
+      if messages.last == "#{@name} isn't hungry right now."
+        write_message("Seriously. #{@name} doesn't want to eat")
+      else
+        write_message("#{@name} isn't hungry right now.")
+      end
+    end
   end
 
   define_singleton_method(:get_pet) do
@@ -29,5 +43,9 @@ class Tamagotchi
 
   define_singleton_method(:reset) do
     @@pets = []
+  end
+
+  define_method(:write_message) do |content|
+    @messages << content
   end
 end

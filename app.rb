@@ -3,14 +3,18 @@ require('sinatra/reloader')
 require('./lib/tamagotchi')
 also_reload('./lib/*.rb')
 
-get('/create_pet') do
-  @critter = Tamagotchi.new('bob')
+get('/choose_name') do
+  erb(:choose_name)
+end
+
+post('/create') do
+  @critter = Tamagotchi.new(params["name"].capitalize)
 
   redirect to('/')
 end
 
 get('/') do
-  redirect to('/create_pet') if Tamagotchi.get_pet.nil?
+  redirect to('/choose_name') if Tamagotchi.get_pet.nil?
 
   critter = Tamagotchi.get_pet
 
@@ -23,7 +27,9 @@ get('/') do
   end
 
   @food_amount = critter.food_level
-  @params = params
+  @params      = params
+  @messages    = critter.messages.reverse
+
   erb(:index)
 end
 

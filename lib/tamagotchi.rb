@@ -1,8 +1,12 @@
 class Tamagotchi
+  @@pets = []
+
   attr_accessor :food_level
   attr_accessor :name
 
   define_method(:initialize) do |name|
+    @@pets << self
+
     @name = name
     @food_level = 10
   end
@@ -17,5 +21,13 @@ class Tamagotchi
 
   define_method(:feed) do |amount = 10|
     @food_level += amount if hungry?
+  end
+
+  define_singleton_method(:get_pet) do
+    @@pets.first
+  end
+
+  define_singleton_method(:reset) do
+    @@pets = []
   end
 end
